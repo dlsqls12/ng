@@ -1,0 +1,38 @@
+<div class="content">
+	<div class="content-header">
+		<span class="content-header-title">Menu 1</span>
+		<button id="register_item" (click)="register_click()">
+			<svg viewBox="0 0 16 16" role="presentation" focusable="false" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><title></title><path d="M14.969 7.969H7.938V15H7V7.969H-.031v-.938H7V0h.938v7.031h7.031v.938z"></path></g></svg>
+			Register
+		</button>
+		<button id="modify_item" (click)="modify_click()">
+			<svg viewBox="0 0 22 22" role="presentation" focusable="false" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><title></title><path opacity="0.9" d="M21.5 3.94c0 .45-.08.89-.26 1.31s-.42.8-.75 1.13l-13.5 13.5L.5 21.5l1.62-6.49 13.5-13.5c.33-.33.7-.58 1.13-.75.42-.17.86-.26 1.31-.26.47 0 .92.09 1.33.27.42.18.78.43 1.09.74s.56.68.74 1.09c.19.42.28.86.28 1.34zm-2.62 2.19c.17-.17.33-.33.49-.48s.3-.31.42-.48.22-.35.29-.54.11-.42.11-.68c0-.29-.06-.57-.17-.82s-.27-.48-.46-.68-.42-.35-.68-.46-.53-.17-.83-.17c-.26 0-.49.04-.68.11-.19.07-.38.17-.54.29s-.33.26-.48.42c-.15.16-.31.32-.48.49l3.01 3zM3.84 15.14c.72.24 1.35.62 1.87 1.14s.9 1.15 1.14 1.87L17.93 7.06l-3-3L3.84 15.14zm-1.53 4.55l3.37-.84c-.07-.31-.18-.61-.33-.89-.15-.28-.34-.53-.56-.75-.22-.22-.47-.41-.75-.56s-.58-.26-.89-.33l-.84 3.37z"></path></g></svg>
+			Modify
+		</button>
+		<button id="delete_item" (click)="delete_click()">
+			<svg viewBox="0 0 16 16" role="presentation" focusable="false" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><title></title><path d="M14 3h-1v11.5a1.51 1.51 0 0 1-.437 1.063A1.493 1.493 0 0 1 11.5 16h-8a1.51 1.51 0 0 1-1.063-.437A1.482 1.482 0 0 1 2 14.5V3H1V2h4V1a.972.972 0 0 1 .293-.707A.972.972 0 0 1 6 0h3a.972.972 0 0 1 .707.293A.972.972 0 0 1 10 1v1h4v1zm-2 0H3v11.5c0 .136.05.253.148.352A.48.48 0 0 0 3.5 15h8a.48.48 0 0 0 .352-.148A.484.484 0 0 0 12 14.5V3zM6 13H5V5h1v8zM6 2h3V1H6v1zm2 11H7V5h1v8zm2 0H9V5h1v8z"></path></g></svg>
+			Delete
+		</button>
+	</div>
+	<div class="content-body" (click)="content_click($event)">
+		<div *ngFor="let item of items" class="item" (click)="item_click($event, item)">
+			<div class="item-content">
+				<div name="img">
+					<div>
+						<img [src]="item.img == null ? '' : item.img">
+					</div>
+				</div>
+				<div name="type">{{ item.type }}</div>
+				<div name="status">{{ item.status }}</div>
+				<div name="date">{{ item.date }}</div>
+				<div name="position">{{ item.position }}</div>
+			</div>
+			<hr>
+			<div class="item-title">{{ item.title }}</div>
+			<div class="select" [style.display]="item.display"></div>
+		</div>
+	</div>
+</div>
+<app-info *ngIf="isInfo" [item]="item" (onSetCloseInfo)="onSetCloseInfo()"></app-info>
+<app-popup-register *ngIf="isPopReg" [item]="popModItem" [title]="popRegTitle" [isButtonType]="isButtonType" (onCloseRegisterPopup)="onCloseRegisterPopup()" (onInsertItem)="onInsertItem($event)" (onUpdateItem)="onUpdateItem($event)"></app-popup-register>
+

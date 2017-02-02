@@ -1,0 +1,60 @@
+
+<!-------------------- 등록 팝업 -------------------->
+<div id="pop_register" class="pop-default" [@flyInOut]>
+	<div class="pop-content">
+		<div class="pop-header">
+			<div>{{ title }}</div>
+			<div class="close-pop" (click)="close_click()">X</div>
+		</div>
+		<hr>
+		<div class="pop-body">
+			<form>
+				<div class="pop-register-property">
+					<div>이미지</div>
+					<div>
+						<img style="max-width: 240px; max-height: 120px;">
+						<input type="file" name="img" (change)="file_change($event)">
+					</div>
+				</div>
+				<div class="pop-register-property">
+					<div>제목</div>
+					<div><input type="text" name="title" [(ngModel)]="item.title"></div>
+				</div>
+				<div class="pop-register-property">
+					<div>형태</div>
+					<div><input type="text" name="type" [(ngModel)]="item.type"></div>
+				</div>
+				<div class="pop-register-property">
+					<div>상태</div>
+					<div><input type="text" name="status" [(ngModel)]="item.status"></div>
+				</div>
+				<div class="pop-register-property">
+					<div>날짜</div>
+					<div><input type="text" name="date" [(ngModel)]="item.date"></div>
+				</div>
+				<div class="pop-register-property">
+					<div>위치</div>
+					<div><input type="text" name="position"  [(ngModel)]="item.position"></div>
+				</div>
+				<div *ngFor="let dy of dyProps;let i = index;">
+					<div class="pop-register-property">
+						<div><input type="text" name="dy-key-{{i}}" [(ngModel)]="dy.key"></div>
+						<div><input type="text" name="dy-value-{{i}}" [(ngModel)]="dy.value"></div>
+						<div (click)="deleteDy_click(i, dy.key)" style="cursor: pointer;">X</div>
+					</div>
+				</div>
+			</form>
+			<div style="text-align: center;">
+				<svg (click)="addColumn_click()" id="pop_register_add_column" style="width: 30px;height: 30px;cursor: pointer;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 42 42" xml:space="preserve">
+					<polygon points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 "/>
+				</svg>
+			</div>
+		</div>
+		<div class="pop-footer">
+			<div style="float:right;">
+				<button *ngIf="isButtonType" id="pop_register_item" (click)="register_click()">등록</button>
+				<button *ngIf="!isButtonType" id="pop_modify_item" (click)="modify_click()">수정</button>
+			</div>
+		</div>
+	</div>
+</div>

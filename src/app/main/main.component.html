@@ -1,0 +1,7 @@
+<div class="body" (mousemove)="body_mousemove($event)" (mouseup)="body_mouseup($event)">
+	<app-header></app-header>
+	<div class="container">
+		<app-menu (onSetIsMoveBar)="onSetIsMoveBar($event)" [menuWidth]="menuWidth"></app-menu>
+		<app-content></app-content>				
+	</div>
+</div>

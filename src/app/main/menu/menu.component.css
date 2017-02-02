@@ -1,0 +1,28 @@
+/**------------------- MENU -------------------**/
+.menu {
+	flex: 0 0 auto;
+	background-color: #282d32;
+	max-width: 400px;
+	min-width: 200px;
+	height: 100%;
+}
+
+.menu ul {
+	padding: 0 0 0 30px;
+}
+
+.menu li, a {
+	list-style: none;
+	margin: 10px 0 10px 0;
+	text-decoration: none;
+	color: #fff;
+}
+
+.bar {
+	flex: 0 0 auto;
+	width: 5px;
+	background-color: #2e80ab;
+	border-left: 1px solid #bbbbbb;
+	height: 100%;
+	cursor: col-resize;
+}

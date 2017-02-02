@@ -1,0 +1,105 @@
+
+/**------------------- POPUP -------------------**/
+.pop-default {
+/* 	display: none; */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: #fff;
+	z-index: 15000;
+}
+
+.pop-default hr {
+	height: 1px;
+	background-color: #ccc;
+	border: none;
+	margin: 2px 0 5px 0;
+}
+
+.pop-content {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.pop-header {
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+	margin: 10px 20px 10px 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.pop-header > div {
+	display: inline-block;
+}
+
+.pop-header > .close-pop {
+	display: block;
+	float: right;
+	cursor: pointer;
+}
+
+.pop-body {
+	-webkit-flex: 1 1 auto;
+	flex: 1 1 auto;
+	padding: 0 20px 0 20px;
+	overflow-y : auto;
+}
+
+.pop-footer {
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+	margin: 10px 20px 10px 20px;
+}
+
+.pop-footer button {
+  color: #ffffff;
+  background: #3498db;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pop-footer button:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+#pop_register {
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+}
+
+.pop-register-property {
+	display: -webkit-flex;
+	display: flex;
+	margin: 10px 0 10px 0;
+}
+
+.pop-register-property > div:first-child {
+	-webkit-flex: 0 0 100px;
+	flex: 0 0 100px;
+	font-weight: bold;
+}
+
+.pop-register-property > div:first-child > input {
+	width: 80px;
+	font-weight: bold;
+}
+
+.pop-register-property > div {
+	-webkit-flex: 1 1 auto;
+	flex: 1 1 auto;
+	font-size: 14px;
+}
+
